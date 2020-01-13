@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+   portainer:
+     container_name: portainer
+     image: portainer/portainer
+     networks:
+       containers:
+         ipv4_address: 192.168.1.231
+     hostname: portainer
+     domainname: docker.muflone.lan
+     restart: 'no'
+     volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+       - ./data:/data
+
+networks:
+  containers:
+    external: true
+
